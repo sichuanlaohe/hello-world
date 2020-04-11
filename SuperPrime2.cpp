@@ -1,9 +1,26 @@
+<<<<<<< HEAD
 //作业：面向对象设计以下框架的代码细节，程序能编译运行得到正确结果 
 #include <iostream>
 class SuperPrime {
   public:
   	SuperPrime():number(0) {  //为什么必须有？ 
   	  size = 0;
+=======
+//浣滀笟锛氬畬鎴愪互涓嬫鏋剁殑浠ｇ爜缁嗚妭锛岀▼搴忚兘缂栬瘧杩愯寰楀埌姝ｇ‘缁撴灉 
+#include <iostream>
+class SuperPrime {
+  public:
+  	//int i;
+  	//int a[1000];
+  	SuperPrime(){
+  		/*SuperPrime a[];
+  		int n;
+  		for(n=0;n<1000;n++)
+  		{
+  		
+  		a[n].number=n;
+  		number=n;}*/
+>>>>>>> 09b9937b70ba01f047742c37de022076091733d8
   	}
   	SuperPrime(int n):number(n) {
   	  size = 0;
@@ -110,7 +127,9 @@ class SuperPrime {
 	}
   	int count() {
   	  int count = 0;
-  	  for (int i = from; i < size; i++)
+	  
+  	  for (int i =0; i < size; i++){
+		set[i].number=i+from;
   	    if(set[i].isSuperPrime())
   	      count += 1;
 	  return count; 
@@ -118,9 +137,10 @@ class SuperPrime {
   	int sum() {
   	  int sum = 0;
   	  
-  	  for (int i = from; i < size; i++)
+  	  for (int i = 0; i < size; i++){
+		 set[i].number=i+from;
   	    if(set[i].isSuperPrime())
-  	      sum =sum+i;
+  	      sum =sum+set.number;
   	      
 	  return sum; 
 	}
