@@ -2,13 +2,25 @@
 //重新设计下面的代码，使其可以处理大整数的素数与超级素数
 //同时仔细理解面向对象的编程方式 
 #include <iostream>
+#include<stdio.h>
 class BigPrime {
 public:
-  BigPrime(int n) : num(n){
+	BigPrime():num(0),n(0){
+	}
+  BigPrime(int n) : num(n),n(n){
   }
-  virtual bool isPrime() const {
+	bool isPrime() {
+  	 {
+  	 	for(int i=2;i<n;i++)
+	  {
+	  	if(n%i==0)
+	  	return true;
+	  } 
+	  	return true;
+	  } 
     return false;
   }
+  int n;
 private:
   const int num;
 }; 
@@ -16,8 +28,24 @@ class BigSuperPrime : public BigPrime {
 public:
   BigSuperPrime(int n) : BigPrime(n), num(n){
   }
-  virtual bool isPrime() const {
-    return true;
+  bool isSuperPrime() const {
+  	BigPrime a[10]=0;
+  	BigPrime sum;
+  	BigPrime ji;
+  	int mid;
+  	mid=num;
+  	for(int i=0;mid;i++)
+  	{
+  		a[i].n=mid%10;
+  		if(!a[i].isPrime())
+  		return false;
+  		sum.n=sum.n+a[i].n;
+  		ji.n=ji.n*a[i].n;
+  		mid=mid/10;
+  	}
+  	if(sum.isPrime()&&ji.isPrime())
+  	return true;
+    return false;
   }
 private:
   const int num;
@@ -44,6 +72,7 @@ private:
   int size, index;
 };
 int main() {
+  BigSuperPrime exm(char a)
   Set set(1000);
   BigSuperPrime bp(2), bp1(3);
   set.add(&bp);
